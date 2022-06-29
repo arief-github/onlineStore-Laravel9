@@ -22,7 +22,14 @@
             <tbody>
                 @foreach ($order->getItems() as $item)
                 <tr>
-                    <td>${{$item->getId()}}</td>
+                    <td>{{$item->getId()}}</td>
+                    <td>
+                        <a class="link-success"
+                            href="{{route('product.show', ['id' => $item->getProduct()->getId()])}}">
+                            {{$item->getProduct()->getName()}}
+                        </a>
+                    </td>
+                    <td>${{$item->getPrice()}}</td>
                     <td>{{$item->getQuantity()}}</td>
                 </tr>
                 @endforeach
